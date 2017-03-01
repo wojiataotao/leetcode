@@ -1,4 +1,5 @@
 public class Solution {
+    // T(n), S(n)
     public int[] TwoSum(int[] nums, int target) {
         if(nums.Length<2) return new int[]{-1, -1}; 
         
