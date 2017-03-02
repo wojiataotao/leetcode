@@ -1,0 +1,40 @@
+public class TwoSum {
+    Dictionary<int, int> map; 
+   
+    /** Initialize your data structure here. */
+    public TwoSum() {
+        map=new Dictionary<int, int>();
+    }
+    
+    /** Add the number to an internal data structure.. */
+    public void Add(int num) {
+        int count=map.ContainsKey(num)?map[num]:0; 
+        map[num]=count+1; 
+    }
+    
+    /** Find if there exists any pair of numbers which sum is equal to the value. */
+    public bool Find(int value) {
+        if(map.Count==0) return false; 
+        
+        foreach(KeyValuePair<int, int> entry in map){
+            int num=entry.Key; 
+            int count=entry.Value; 
+            int partner=value-num; 
+            
+            if(num==partner){
+                if(count>1) return true; 
+            }
+            else{
+                if(map.ContainsKey(partner)) return true; 
+            }
+        }
+        return false; 
+    }
+}
+
+/**
+ * Your TwoSum object will be instantiated and called as such:
+ * TwoSum obj = new TwoSum();
+ * obj.Add(number);
+ * bool param_2 = obj.Find(value);
+ */
