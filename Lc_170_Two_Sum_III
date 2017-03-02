@@ -7,12 +7,14 @@ public class TwoSum {
     }
     
     /** Add the number to an internal data structure.. */
+    // T(1), S(1)
     public void Add(int num) {
         int count=map.ContainsKey(num)?map[num]:0; 
         map[num]=count+1; 
     }
     
     /** Find if there exists any pair of numbers which sum is equal to the value. */
+    // T(n), S(1)
     public bool Find(int value) {
         if(map.Count==0) return false; 
         
